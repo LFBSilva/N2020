@@ -3,9 +3,9 @@ package br.fiap.main;
 //Se importa metodo, o static é pra reduzir o codigo  
 import static javax.swing.JOptionPane.*; //importa metodos static    //* importa todos metodos
 
-import br.fiap.controle.Controle;
-import br.fiap.exception.OpcaoInvalidaException;
-import br.fiap.menu.Menu;
+import br.fiap.exceptions.OpcaoInvalidaException;
+import br.fiap.metodos.Controle;
+import br.fiap.metodos.Menu;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Double.parseDouble;

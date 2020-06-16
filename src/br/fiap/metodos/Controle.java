@@ -1,14 +1,13 @@
-package br.fiap.controle;
+package br.fiap.metodos;
 
 
 import java.util.LinkedList;
 import java.util.List;
 
-import br.fiap.paciente.Paciente;
 import br.fiap.paciente.PacienteForaGrupoDeRisco;
 import br.fiap.paciente.PacienteGrupoDeRisco;
-import br.fiap.exception.OpcaoInvalidaException;
-import br.fiap.menu.Menu;
+import br.fiap.exceptions.OpcaoInvalidaException;
+import br.fiap.objetos.Paciente;
 
 import static javax.swing.JOptionPane.*;
 import static java.lang.Long.parseLong;

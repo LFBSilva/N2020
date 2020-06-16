@@ -1,4 +1,4 @@
-package br.fiap.medico;
+package br.fiap.objetos;
 
 public class Medico {
 

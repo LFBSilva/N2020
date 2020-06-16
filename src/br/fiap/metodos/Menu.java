@@ -1,4 +1,4 @@
-package br.fiap.menu;
+package br.fiap.metodos;
 
 public class Menu {
 	

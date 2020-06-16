@@ -1,4 +1,4 @@
-package br.fiap.exception;
+package br.fiap.exceptions;
 
 @SuppressWarnings("serial")
 public class OpcaoInvalidaException extends Exception {

@@ -1,36 +1,44 @@
-package br.fiap.paciente;
+package br.fiap.objetos;
 
-public abstract class Paciente { //extends Object --> herda apenas métodos
-	protected long cpf; //deixa visível para as classes filhas
-	protected String nome;
-	
-	public Paciente(long cpf, String nome) {
-		this.cpf = cpf;
-		this.nome = nome;
-	}
-	
-	@Override
-	public String toString() {
-		String aux = "";
-		aux += "CPF --> "+cpf+"\n";
-		aux += "Nome --> "+nome+"\n";
-		return aux;
-	}
+public class Paciente extends Pessoa {
+	protected Boolean grupoDeRisco;
+	protected Boolean sintomas;
+	protected Boolean assintomatico;
 
+	public Paciente(String nome, int idade, String cpf) {
+		super(nome, idade, cpf);
+		// TODO Auto-generated constructor stub
+	} // extends Object --> herda apenas métodos
 
-	public void setCpf(long cpf) {
-		this.cpf = cpf;
+	public Paciente(String nome, int idade, String cpf, Boolean grupoDeRisco, Boolean sintomas, Boolean assintomatico) {
+		super(nome, idade, cpf);
+		this.grupoDeRisco = grupoDeRisco;
+		this.sintomas = sintomas;
+		this.assintomatico = assintomatico;
 	}
 
-	public long getCpf() {
-		return cpf;
-	}	
-
-	public String getNome() {
-		return nome;
+	public Boolean getGrupoDeRisco() {
+		return grupoDeRisco;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}	
+	public void setGrupoDeRisco(Boolean grupoDeRisco) {
+		this.grupoDeRisco = grupoDeRisco;
+	}
+
+	public Boolean getSintomas() {
+		return sintomas;
+	}
+
+	public void setSintomas(Boolean sintomas) {
+		this.sintomas = sintomas;
+	}
+
+	public Boolean getAssintomatico() {
+		return assintomatico;
+	}
+
+	public void setAssintomatico(Boolean assintomatico) {
+		this.assintomatico = assintomatico;
+	}
+
 }
