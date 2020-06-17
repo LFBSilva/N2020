@@ -8,6 +8,12 @@ public abstract class Pessoa {
 	protected float altura;
 	protected float peso;
 
+	public Pessoa(String nome, int idade, String cpf) {
+		this.nome = nome;
+		this.idade = idade;
+		this.cpf = cpf;
+	}
+	
 	public Pessoa(String nome, int idade, String cpf, float altura, float peso) {
 		this.nome = nome;
 		this.idade = idade;

@@ -5,13 +5,13 @@ public class Paciente extends Pessoa {
 	protected Boolean sintomas;
 	protected Boolean assintomatico;
 
-	public Paciente(String nome, int idade, String cpf) {
-		super(nome, idade, cpf);
+	public Paciente(String nome, int idade, String cpf, float altura, float peso) {
+		super(nome, idade, cpf, altura, peso);
 		// TODO Auto-generated constructor stub
 	} // extends Object --> herda apenas métodos
 
-	public Paciente(String nome, int idade, String cpf, Boolean grupoDeRisco, Boolean sintomas, Boolean assintomatico) {
-		super(nome, idade, cpf);
+	public Paciente(String nome, int idade, String cpf, Boolean grupoDeRisco, Boolean sintomas, Boolean assintomatico, float altura, float peso) {
+		super(nome, idade, cpf, altura, peso);
 		this.grupoDeRisco = grupoDeRisco;
 		this.sintomas = sintomas;
 		this.assintomatico = assintomatico;
