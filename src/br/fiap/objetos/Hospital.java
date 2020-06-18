@@ -8,12 +8,12 @@ public class Hospital extends Empresa {
 	private ListaPessoas atendimendos;
 	private ListaMedicos medicos;
 
-	public Hospital(String nome, int cnpj) {
+	public Hospital(String nome, String cnpj) {
 		super(nome, cnpj);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Hospital(String nome, int cnpj, int leitos) {
+	public Hospital(String nome, String cnpj, int leitos) {
 		super(nome, cnpj);
 		this.leitos = leitos;
 	}

@@ -37,12 +37,12 @@ public class ValidacaoGrupoRisco {
 
 	public boolean Validacao(Pessoa p) {
 		int cont = 0;
-		cont = ValidacaoIdade(p.getIdade()) ? cont++ : cont;
-		cont = ValidacaoObesidade(p.getAltura(), p.getPeso()) ? cont++ : cont;
-		cont = ValidacaoCardiaco() ? cont : cont++;
-		cont = ValidacaoDiabete() ? cont : cont++;
-		cont = ValidacaoRespitorio() ? cont : cont++;
-		cont = ValidacaoHipertensao() ? cont : cont++;
+		cont = ValidacaoIdade(p.getIdade()) ? cont+1 : cont;
+		cont = ValidacaoObesidade(p.getAltura(), p.getPeso()) ? cont+1 : cont;
+		cont = ValidacaoCardiaco() ? cont : cont+1;
+		cont = ValidacaoDiabete() ? cont : cont+1;
+		cont = ValidacaoRespitorio() ? cont : cont+1;
+		cont = ValidacaoHipertensao() ? cont : cont+1;
 		return cont == 0 ? false : true;
 	}
 }

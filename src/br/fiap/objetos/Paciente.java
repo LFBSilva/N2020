@@ -10,6 +10,10 @@ public class Paciente extends Pessoa {
 		// TODO Auto-generated constructor stub
 	} // extends Object --> herda apenas métodos
 
+	public Paciente(String nome, int idade, String cpf) {
+		super(nome, idade, cpf);
+	}
+
 	public Paciente(String nome, int idade, String cpf, Boolean grupoDeRisco, Boolean sintomas, Boolean assintomatico, float altura, float peso) {
 		super(nome, idade, cpf, altura, peso);
 		this.grupoDeRisco = grupoDeRisco;

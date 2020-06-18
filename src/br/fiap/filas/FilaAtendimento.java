@@ -18,7 +18,6 @@ public class FilaAtendimento implements IFila {
 	public void adicionar(Pessoa p) {
 		fila.add(p);
 	}
-
 	@Override
 	public boolean remover(String cpf) {
 		// TODO Auto-generated method stub
@@ -34,7 +33,6 @@ public class FilaAtendimento implements IFila {
 		}
 		return false;
 	}
-
 	@Override
 	public Pessoa localizar(String cpf) {
 		Pessoa p;
@@ -49,5 +47,4 @@ public class FilaAtendimento implements IFila {
 		return null;
 
 	}
-
 }

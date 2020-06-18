@@ -13,7 +13,7 @@ public class Menu {
 	
 	public static String menuCadastroPaciente() {
 		String aux = "Identificação de Grupos\n";
-		aux += "1. Verificar grupo de risco \n";
+		aux += "1. Atender Paciente \n";
 		aux += "2. Finalizar";
 		return aux;
 	}	

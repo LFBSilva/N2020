@@ -2,8 +2,8 @@ package br.fiap.objetos;
 
 public abstract class Empresa {
 	protected String nome;
-	protected int cnpj;
-	public Empresa(String nome, int cnpj) {
+	protected String cnpj;
+	public Empresa(String nome, String cnpj) {
 		this.nome = nome;
 		this.cnpj = cnpj;
 	}
@@ -13,10 +13,10 @@ public abstract class Empresa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
-	public void setCnpj(int cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 }
