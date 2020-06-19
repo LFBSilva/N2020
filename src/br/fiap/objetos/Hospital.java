@@ -1,5 +1,8 @@
 package br.fiap.objetos;
 
+import java.util.ArrayList;
+
+import br.fiap.listas.ListaInternacao;
 import br.fiap.listas.ListaMedicos;
 import br.fiap.listas.ListaPessoas;
 
@@ -7,6 +10,7 @@ public class Hospital extends Empresa {
 	private int leitos;
 	private ListaPessoas atendimendos;
 	private ListaMedicos medicos;
+	
 
 	public Hospital(String nome, String cnpj) {
 		super(nome, cnpj);
@@ -41,4 +45,5 @@ public class Hospital extends Empresa {
 	public void setMedicos(ListaMedicos medicos) {
 		this.medicos = medicos;
 	}
+	
 }

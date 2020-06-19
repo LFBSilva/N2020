@@ -43,23 +43,69 @@ public class Main {
 		do {
 			try {
 				opcao = parseInt(showInputDialog(Menu.menuPrincipal()));
-				if (opcao < 1 || opcao > 4) {
-					throw new OpcaoInvalidaException("A opção deve estar entre 1 e 4");
+				if (opcao < 1 || opcao > 8) {
+					throw new OpcaoInvalidaException("A opção deve estar entre 1 e 8");
 				}
 				switch (opcao) {
-				case 1:
 
+				case 1:
 					Paciente p = Controle.cadastrar();
 					filaAtendimento.adicionar(p);
 					listaPessoa.adicionar(p);
 					hospital.setAtendimendos(listaPessoa);
 					break;
+
 				case 2:
 					showMessageDialog(null, VerificarLeitos(hospital, listaInternacao));
 					break;
+
 				case 3:
 					showMessageDialog(null, (String) Locacalizar(showInputDialog("Por favor informe seu CPF: ")));
 					break;
+
+				case 4:
+					Paciente emAtendimento = Diagnosticar((Paciente) filaAtendimento.proximoAtendimento());
+					if (emAtendimento.getSintomas() == true) {
+						filaInternacao.adicionar(emAtendimento);
+					} else {
+						listaPessoasAlta.adicionar(emAtendimento);
+					}
+					break;
+
+				case 5:
+					if (listaInternacao.LeitosOcupados() < hospital.getLeitos()) {
+						listaInternacao.adicionar(filaInternacao.proximoAtendimento());
+					} else {
+						showMessageDialog(null, "Todos os Leitos estão ocupados");
+					}
+					break;
+
+				case 6:
+					if (listaInternacao.LeitosOcupados() > 0) {
+						Pessoa obito = listaInternacao
+								.localizar(showInputDialog("Informe o CPF do paciente que entrou em óbito:"));
+						if (obito != null) {
+							listaInternacao.remover(obito.getCpf());
+							listaPessoasObitos.adicionar(obito);
+						} else {
+							showMessageDialog(null, "Paciente do CPF informado, não foi lacalizado");
+						}
+					}
+
+					break;
+				case 7:
+					if (listaInternacao.LeitosOcupados() > 0) {
+						Pessoa alta = listaInternacao
+								.localizar(showInputDialog("Informe o CPF do paciente que entrou em Alta:"));
+						if (alta != null) {
+							listaInternacao.remover(alta.getCpf());
+							listaPessoasAlta.adicionar(alta);
+						} else {
+							showMessageDialog(null, "Paciente do CPF informado, não foi lacalizado");
+						}
+					}
+					break;
+
 				}
 
 			} catch (NumberFormatException e) {
@@ -68,7 +114,7 @@ public class Main {
 				showMessageDialog(null, e);
 			}
 
-		} while (opcao != 4);
+		} while (opcao != 8);
 	}
 
 	private static String Locacalizar(String cpf) {
@@ -79,16 +125,17 @@ public class Main {
 		localizacao = Controle.localizar(listaPessoasObitos, cpf) != null ? "Morto" : null;
 		return localizacao == null ? "CPF não cadastrado" : localizacao;
 	}
-	
+
 	private static String VerificarLeitos(Hospital hospital, ListaInternacao lista) {
-		return "A quantidade de leitos disponíveis é de: " + Integer.toString(lista.LeitosOcupados() - hospital.getLeitos());
+		return "A quantidade de leitos disponíveis é de: "
+				+ Integer.toString(lista.LeitosOcupados() - hospital.getLeitos());
 	}
 
-		
-}
+	private static Paciente Diagnosticar(Paciente p) {
+		p.setAssintomatico(new ValidacaoAssintomatico().Validacao());
+		p.setGrupoDeRisco(new ValidacaoGrupoRisco().Validacao(p));
+		p.setSintomas(new ValidacaoSintomas().Validacao());
+		return p;
+	}
 
-// p.setAssintomatico(new ValidacaoAssintomatico().Validacao());
-// p.setGrupoDeRisco(new ValidacaoGrupoRisco().Validacao(p));
-// p.setSintomas(new ValidacaoSintomas().Validacao());
-// showMessageDialog(null, p.getNome() + "\n" + p.getAssintomatico() + "\n" + p.getGrupoDeRisco()
-//		+ "\n" + p.getSintomas());
+}

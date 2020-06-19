@@ -1,5 +1,7 @@
 package br.fiap.filas;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,17 @@ public class FilaInternacao implements IFila {
 			if(pessoa.getCpf().equals(cpf)) return pessoa;
 		}
 		return null;
+	}
+	
+	public Pessoa proximoAtendimento() {
+
+		if (fila.isEmpty() == false) {
+			Pessoa p = fila.get(0);
+			return remover(p.getCpf()) ? p : null;
+		} else {
+			showMessageDialog(null, "A fila de Internação está vazia");
+			return null;
+		}
 	}
 	
 }

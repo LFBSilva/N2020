@@ -1,7 +1,5 @@
 package br.fiap.metodos;
 
-import javax.swing.JOptionPane;
-
 import static javax.swing.JOptionPane.*;
 import static java.lang.Float.parseFloat;
 

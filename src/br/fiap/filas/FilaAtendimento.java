@@ -3,9 +3,8 @@ package br.fiap.filas;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-
 import br.fiap.objetos.Pessoa;
+import static javax.swing.JOptionPane.*;
 
 public class FilaAtendimento implements IFila {
 	public FilaAtendimento() {
@@ -18,6 +17,7 @@ public class FilaAtendimento implements IFila {
 	public void adicionar(Pessoa p) {
 		fila.add(p);
 	}
+
 	@Override
 	public boolean remover(String cpf) {
 		// TODO Auto-generated method stub
@@ -33,6 +33,7 @@ public class FilaAtendimento implements IFila {
 		}
 		return false;
 	}
+
 	@Override
 	public Pessoa localizar(String cpf) {
 		Pessoa p;
@@ -46,5 +47,16 @@ public class FilaAtendimento implements IFila {
 		}
 		return null;
 
+	}
+
+	public Pessoa proximoAtendimento() {
+
+		if (fila.isEmpty() == false) {
+			Pessoa p = fila.get(0);
+			return remover(p.getCpf()) ? p : null;
+		} else {
+			showMessageDialog(null, "A fila de atendimento está vazia");
+			return null;
+		}
 	}
 }
